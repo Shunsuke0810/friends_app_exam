@@ -12,7 +12,15 @@ class PicturesController < ApplicationController
 
   # GET /pictures/new
   def new
-    @picture = Picture.new
+    if params[:back]
+      @picture = Picture.new(picture_params)
+    else
+      @picture = Picture.new
+    end
+  end
+
+  def confirm
+    @picture = Picture.new(picture_params)
   end
 
   # GET /pictures/1/edit
@@ -22,14 +30,18 @@ class PicturesController < ApplicationController
   # POST /pictures or /pictures.json
   def create
     @picture = Picture.new(picture_params)
-
     respond_to do |format|
-      if @picture.save
-        format.html { redirect_to picture_url(@picture), notice: "Picture was successfully created." }
-        format.json { render :show, status: :created, location: @picture }
+      if params[:back]
+        render :new
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
+        if @picture.save
+          format.html { redirect_to picture_url(@picture), notice: "Picture was successfully created." }
+          format.json { render :show, status: :created, location: @picture }
+        else
+          render :new
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @picture.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
