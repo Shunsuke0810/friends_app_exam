@@ -7,7 +7,7 @@
   
   <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
   <p>コメント:<%= @picture.content %></p>
-  <p>投稿者:<%= @picture.user_id %></p>
+  <p>投稿者:<%= @picture.user.name %></p>
   
   
   <%= form.submit "投稿する" %>
