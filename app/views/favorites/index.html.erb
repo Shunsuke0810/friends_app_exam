@@ -1,0 +1,17 @@
+<h1>お気に入り一覧</h1>
+
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+  </tr>
+
+<% @favorites.each do |favorite| %>
+  <tr>
+    <td><%= favorite.picture.image %></td>
+    <td><%= favorite.picture.content %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to '投稿一覧画面に戻る', pictures_path %>
