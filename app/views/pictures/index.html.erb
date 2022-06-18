@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>お気に入りの画像を投稿してみよう！</h1>
+<h1></h1>
 
 <table>
   <thead>
@@ -16,7 +16,7 @@
     <% @pictures.each do |picture| %>
       <tr>
         <td><%= picture.content %></td>
-        <td><%= picture.image %></td>
+        <td><%= image_tag picture.image.url %></td>
         <td><%= picture.user.name %></td>
         <td><%= link_to 'Show', picture %></td>
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
