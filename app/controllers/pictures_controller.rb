@@ -28,6 +28,9 @@ class PicturesController < ApplicationController
 
   # GET /pictures/1/edit
   def edit
+    # unless 投稿したユーザー == ログインしているユーザー
+    #   redirect_to ...
+    # end
   end
 
   # POST /pictures or /pictures.json
@@ -42,6 +45,7 @@ class PicturesController < ApplicationController
         if @picture.save
           format.html { redirect_to picture_url(@picture), notice: "Picture was successfully created." }
           format.json { render :show, status: :created, location: @picture }
+          NoticeMailer.notice_mail(@picture).deliver
         else
           render :new
           format.html { render :new, status: :unprocessable_entity }
