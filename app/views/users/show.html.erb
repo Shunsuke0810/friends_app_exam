@@ -4,4 +4,8 @@
 <p>名前:<%= @user.name %></p>
 <p>メールアドレス: <%= @user.email %></p>
 
+
 <p><%= link_to "プロフィールを編集する", edit_user_path(@user.id) %></p>
+
+<p><%= link_to "投稿一覧ページ", pictures_path %></p>
+
