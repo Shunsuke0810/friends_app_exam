@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <h1></h1>
 
@@ -18,11 +17,11 @@
         <td><%= picture.content %></td>
         <td><%= image_tag picture.image.url %></td>
         <td><%= picture.user.name %></td>
-        <td><%= link_to 'Show', picture %></td>
+        <td><%= link_to '詳細', picture %></td>
         
         <% if current_user.id == picture.user_id %>
-          <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-          <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to '編集', edit_picture_path(picture) %></td>
+          <td><%= link_to '削除', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
         
     <% end %>
@@ -31,7 +30,7 @@
 
 <br>
 
-<%= link_to 'New Picture', new_picture_path %>
+<%= link_to '写真を投稿する', new_picture_path %>
 <%= link_to 'お気に入り', favorites_path %>
 
 

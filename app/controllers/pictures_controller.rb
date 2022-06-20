@@ -38,7 +38,7 @@ class PicturesController < ApplicationController
         render :new
       else
         if @picture.save
-          format.html { redirect_to picture_url(@picture), notice: "Picture was successfully created." }
+          format.html { redirect_to picture_url(@picture), notice: "写真が投稿されました" }
           format.json { render :show, status: :created, location: @picture }
           NoticeMailer.notice_mail(@picture).deliver
         else
@@ -66,7 +66,7 @@ class PicturesController < ApplicationController
     if @picture.user_id == current_user.id
       @picture.destroy
       respond_to do |format|
-      format.html { redirect_to pictures_url, notice: "Picture was successfully destroyed." }
+      format.html { redirect_to pictures_url, notice: "写真を削除しました" }
       format.json { head :no_content }
     end
     
