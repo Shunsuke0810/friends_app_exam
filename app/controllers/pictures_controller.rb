@@ -1,17 +1,14 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[ show edit update destroy ]
 
-  # GET /pictures or /pictures.json
   def index
     @pictures = Picture.all
   end
 
-  # GET /pictures/1 or /pictures/1.json
   def show
     @favorite = current_user.favorites.find_by(picture_id: @picture.id)
   end
 
-  # GET /pictures/new
   def new
     if params[:back]
       @picture = Picture.new(picture_params)
@@ -26,14 +23,12 @@ class PicturesController < ApplicationController
     render :new if @picture.invalid?
   end
 
-  # GET /pictures/1/edit
   def edit
     unless @picture.user_id == current_user.id
       redirect_to new_session_path
     end
   end
 
-  # POST /pictures or /pictures.json
   def create
     @picture = Picture.new(picture_params)
     @picture.user_id = current_user.id
@@ -55,7 +50,6 @@ class PicturesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /pictures/1 or /pictures/1.json
   def update
     respond_to do |format|
       if @picture.update(picture_params)
@@ -68,9 +62,7 @@ class PicturesController < ApplicationController
     end
   end
 
-  # DELETE /pictures/1 or /pictures/1.json
   def destroy
-  
     if @picture.user_id == current_user.id
       @picture.destroy
       respond_to do |format|
@@ -84,13 +76,13 @@ class PicturesController < ApplicationController
   
   end
 
-  private
+    private
 
-  def set_picture
-    @picture = Picture.find(params[:id])
-  end
+    def set_picture
+      @picture = Picture.find(params[:id])
+    end
 
-  def picture_params
-    params.require(:picture).permit(:content, :image, :image_cache, :user_id)
-  end
+    def picture_params
+      params.require(:picture).permit(:content, :image, :image_cache, :user_id)
+    end
 end
