@@ -30,7 +30,6 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'rexml'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -39,4 +38,4 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'bcrypt'
 
-
+ gem 'rexml'
