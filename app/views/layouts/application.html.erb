@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Friendsapp</title>
+    <title>Instagramapp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,8 +9,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+    <header>
+    <div class="title">Instagram.clone</div>
+    </header>
+
     <body>
 
+    <div class="c_button">
     <% if logged_in? %>
       <%= link_to "Profile", user_path(current_user.id) %>
       <%= link_to "Logout", session_path(current_user.id), method: :delete %>
@@ -18,7 +23,8 @@
       <%= link_to "Sign up", new_user_path %>
       <%= link_to "Login", new_session_path %>
     <% end %>
-
+    </div>
+    
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
@@ -28,5 +34,11 @@
   <body>
     <%= yield %>
   </body>
+
+  <footer>
+  <div class="footer_text">
+  created by WEF2205_SHUNSUKE_SATO
+  </div>
+  </footer>
 
 </html>
