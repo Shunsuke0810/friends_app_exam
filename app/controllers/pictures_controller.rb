@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
   before_action :set_picture, only: %i[ show edit update destroy ]
 
   def index
-    @pictures = Picture.all
+    @pictures = Picture.all.where.not(content: nil,image: nil)
   end
 
   def show
