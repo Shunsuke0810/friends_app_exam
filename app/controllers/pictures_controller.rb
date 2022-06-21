@@ -40,7 +40,7 @@ class PicturesController < ApplicationController
         if @picture.save
           format.html { redirect_to picture_url(@picture), notice: "写真が投稿されました" }
           format.json { render :show, status: :created, location: @picture }
-          NoticeMailer.notice_mail(@picture).deliver
+          # NoticeMailer.notice_mail(@picture).deliver
         else
           render :new
           format.html { render :new, status: :unprocessable_entity }
