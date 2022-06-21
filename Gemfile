@@ -39,3 +39,5 @@ gem 'mini_magick'
 gem 'bcrypt'
 
  gem 'rexml'
+
+ gem 'faker'

@@ -89,6 +89,8 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     erubi (1.10.0)
+    faker (2.21.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -243,6 +245,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   dotenv-rails
+  faker
   jbuilder (~> 2.7)
   letter_opener_web
   listen (~> 3.2)
